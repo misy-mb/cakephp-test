@@ -1,54 +1,55 @@
-<?php
-/**
- * @var \App\View\AppView $this
- * @var \App\Model\Entity\Post $post
- */
-?>
-<div class="row">
-    <aside class="column">
-        <div class="side-nav">
-            <h4 class="heading"><?= __('Actions') ?></h4>
-            <?= $this->Html->link(__('Edit Post'), ['action' => 'edit', $post->id], ['class' => 'side-nav-item']) ?>
-            <?= $this->Form->postLink(__('Delete Post'), ['action' => 'delete', $post->id], ['confirm' => __('Are you sure you want to delete # {0}?', $post->id), 'class' => 'side-nav-item']) ?>
-            <?= $this->Html->link(__('List Posts'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
-            <?= $this->Html->link(__('New Post'), ['action' => 'add'], ['class' => 'side-nav-item']) ?>
+<section class="content-header">
+  <h1>
+    Post
+    <small><?php echo __('View'); ?></small>
+  </h1>
+  <ol class="breadcrumb">
+    <li><a href="<?php echo $this->Url->build(['action' => 'index']); ?>"><i class="fa fa-dashboard"></i> <?php echo __('Home'); ?></a></li>
+  </ol>
+</section>
+
+<!-- Main content -->
+<section class="content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="box box-solid">
+        <div class="box-header with-border">
+          <i class="fa fa-info"></i>
+          <h3 class="box-title"><?php echo __('Information'); ?></h3>
         </div>
-    </aside>
-    <div class="column-responsive column-80">
-        <div class="posts view content">
-            <h3><?= h($post->title) ?></h3>
-            <table>
-                <tr>
-                    <th><?= __('Title') ?></th>
-                    <td><?= h($post->title) ?></td>
-                </tr>
-                <tr>
-                    <th><?= __('Subtitle') ?></th>
-                    <td><?= h($post->subtitle) ?></td>
-                </tr>
-                <tr>
-                    <th><?= __('Thumbnail') ?></th>
-                    <td><?= h($post->thumbnail) ?></td>
-                </tr>
-                <tr>
-                    <th><?= __('Id') ?></th>
-                    <td><?= $this->Number->format($post->id) ?></td>
-                </tr>
-                <tr>
-                    <th><?= __('Created') ?></th>
-                    <td><?= h($post->created) ?></td>
-                </tr>
-                <tr>
-                    <th><?= __('Modified') ?></th>
-                    <td><?= h($post->modified) ?></td>
-                </tr>
-            </table>
-            <div class="text">
-                <strong><?= __('Description') ?></strong>
-                <blockquote>
-                    <?= $this->Text->autoParagraph(h($post->description)); ?>
-                </blockquote>
-            </div>
+        <!-- /.box-header -->
+        <div class="box-body">
+          <dl class="dl-horizontal">
+            <dt scope="row"><?= __('Title') ?></dt>
+            <dd><?= h($post->title) ?></dd>
+            <dt scope="row"><?= __('Subtitle') ?></dt>
+            <dd><?= h($post->subtitle) ?></dd>
+            <dt scope="row"><?= __('Thumbnail') ?></dt>
+            <dd><?= h($post->thumbnail) ?></dd>
+            <dt scope="row"><?= __('Id') ?></dt>
+            <dd><?= $this->Number->format($post->id) ?></dd>
+            <dt scope="row"><?= __('Created') ?></dt>
+            <dd><?= h($post->created) ?></dd>
+            <dt scope="row"><?= __('Modified') ?></dt>
+            <dd><?= h($post->modified) ?></dd>
+          </dl>
         </div>
+      </div>
     </div>
-</div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="box box-solid">
+        <div class="box-header with-border">
+          <i class="fa fa-text-width"></i>
+          <h3 class="box-title"><?= __('Description') ?></h3>
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body">
+            <?= $this->Text->autoParagraph($post->description); ?>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
